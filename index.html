@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LineOS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+
+    /* 🖼️ Background (replace this image with your own Luffy image file) */
+    background: url("luffy.jpg") center/cover no-repeat;
+  }
+
+  /* dark overlay so text is readable */
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+  }
+
+  .topbar {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* ✨ Fancy but not too crazy title */
+  .title {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffffff, #9ad7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .center {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 🔍 gray search bar */
+  .search-box {
+    display: flex;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 20px;
+  }
+
+  input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 30px 0 0 30px;
+    font-size: 16px;
+    background: #2b2b2b;
+    color: white;
+  }
+
+  input::placeholder {
+    color: #bbbbbb;
+  }
+
+  button {
+    padding: 15px 20px;
+    border: none;
+    background: #888;
+    color: black;
+    font-weight: bold;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #aaa;
+  }
+
+  .apps {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 20px;
+  }
+
+  .app {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .app:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.2);
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 12px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="topbar">
+  <div class="title">LineOS</div>
+</div>
+
+<div class="center">
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input id="search" type="text" placeholder="Search Google..." />
+    <button onclick="goSearch()">Search</button>
+  </div>
+
+  <!-- APPS -->
+  <div class="apps">
+    <div class="app" onclick="alert('Notes coming soon')">📝<span>Notes</span></div>
+    <div class="app" onclick="alert('Games coming soon')">🎮<span>Games</span></div>
+    <div class="app" onclick="alert('Files coming soon')">📁<span>Files</span></div>
+  </div>
+
+</div>
+
+<div class="footer">LineOS v2 • GitHub Pages Build</div>
+
+<script>
+function goSearch() {
+  let q = document.getElementById("search").value;
+  if (!q) return;
+
+  // safe search redirect (Google)
+  window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(q);
+}
+
+document.getElementById("search").addEventListener("keydown", function(e){
+  if (e.key === "Enter") goSearch();
+});
+</script>
+
+</body>
+</html>
