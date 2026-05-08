@@ -8,119 +8,169 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    color: white;
 
-    /* 🖼️ Background (replace this image with your own Luffy image file) */
-    background: url("luffy.jpg") center/cover no-repeat;
-  }
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
 
-  /* dark overlay so text is readable */
-  .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.65);
-  }
+  background-image: url("ec5f377a267f9e999a5f4b13bd0fb102.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-  .topbar {
-    position: relative;
-    text-align: center;
-    padding: 20px;
-  }
+  background-color: rgba(0,0,0,0.45);
+  background-blend-mode: darken;
+}
 
-  /* ✨ Fancy but not too crazy title */
-  .title {
-    font-size: 42px;
-    font-weight: 600;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #ffffff, #9ad7ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+/* dark overlay */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+}
 
-  .center {
-    position: relative;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+/* top logo */
+.topbar {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 40px;
+}
 
-  /* 🔍 gray search bar */
-  .search-box {
-    display: flex;
-    width: 90%;
-    max-width: 600px;
-    margin-top: 20px;
-  }
+.logo {
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: 6px;
 
-  input {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    outline: none;
-    border-radius: 30px 0 0 30px;
-    font-size: 16px;
-    background: #2b2b2b;
-    color: white;
-  }
+  background: linear-gradient(90deg, #ffffff, #9ed8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-  input::placeholder {
-    color: #bbbbbb;
-  }
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
 
-  button {
-    padding: 15px 20px;
-    border: none;
-    background: #888;
-    color: black;
-    font-weight: bold;
-    border-radius: 0 30px 30px 0;
-    cursor: pointer;
-  }
+/* center content */
+.center {
+  position: relative;
+  z-index: 2;
 
-  button:hover {
-    background: #aaa;
-  }
+  height: 70vh;
 
-  .apps {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  .app {
-    width: 100px;
-    height: 100px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    cursor: pointer;
-    transition: 0.2s;
-  }
+/* search bar */
+.search-box {
+  display: flex;
+  width: 90%;
+  max-width: 700px;
+}
 
-  .app:hover {
-    transform: scale(1.1);
-    background: rgba(255,255,255,0.2);
-  }
+.search-box input {
+  flex: 1;
+  padding: 18px;
 
-  .footer {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    opacity: 0.5;
-    font-size: 12px;
-  }
+  border: none;
+  outline: none;
+
+  border-radius: 35px 0 0 35px;
+
+  font-size: 17px;
+
+  background: rgba(50,50,50,0.95);
+  color: white;
+}
+
+.search-box input::placeholder {
+  color: #cfcfcf;
+}
+
+.search-box button {
+  padding: 18px 24px;
+
+  border: none;
+
+  border-radius: 0 35px 35px 0;
+
+  background: #a8a8a8;
+  color: black;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.search-box button:hover {
+  background: white;
+}
+
+/* apps section */
+.apps {
+  margin-top: 45px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  gap: 25px;
+}
+
+.app {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.app:hover {
+  transform: scale(1.08);
+
+  background: rgba(255,255,255,0.18);
+}
+
+.app-icon {
+  font-size: 38px;
+}
+
+.app-name {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* footer */
+.footer {
+  position: absolute;
+  bottom: 12px;
+
+  width: 100%;
+  text-align: center;
+
+  font-size: 12px;
+  opacity: 0.6;
+
+  z-index: 2;
+}
+
 </style>
 </head>
 
@@ -129,40 +179,73 @@
 <div class="overlay"></div>
 
 <div class="topbar">
-  <div class="title">LineOS</div>
+  <div class="logo">LineOS</div>
 </div>
 
 <div class="center">
 
-  <!-- SEARCH -->
+  <!-- SEARCH BAR -->
   <div class="search-box">
-    <input id="search" type="text" placeholder="Search Google..." />
-    <button onclick="goSearch()">Search</button>
+    <input
+      id="search"
+      type="text"
+      placeholder="Search Google..."
+    />
+
+    <button onclick="searchGoogle()">
+      Search
+    </button>
   </div>
 
   <!-- APPS -->
   <div class="apps">
-    <div class="app" onclick="alert('Notes coming soon')">📝<span>Notes</span></div>
-    <div class="app" onclick="alert('Games coming soon')">🎮<span>Games</span></div>
-    <div class="app" onclick="alert('Files coming soon')">📁<span>Files</span></div>
+
+    <div class="app" onclick="window.open('https://www.google.com', '_blank')">
+      <div class="app-icon">🌐</div>
+      <div class="app-name">Browser</div>
+    </div>
+
+    <div class="app" onclick="window.open('https://www.youtube.com', '_blank')">
+      <div class="app-icon">▶️</div>
+      <div class="app-name">YouTube</div>
+    </div>
+
+    <div class="app" onclick="window.open('https://docs.google.com', '_blank')">
+      <div class="app-icon">📄</div>
+      <div class="app-name">Docs</div>
+    </div>
+
   </div>
 
 </div>
 
-<div class="footer">LineOS v2 • GitHub Pages Build</div>
+<div class="footer">
+  LineOS v3 • GitHub Pages
+</div>
 
 <script>
-function goSearch() {
+
+function searchGoogle() {
+
   let q = document.getElementById("search").value;
+
   if (!q) return;
 
-  // safe search redirect (Google)
-  window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(q);
+  window.location.href =
+    "https://www.google.com/search?q=" +
+    encodeURIComponent(q);
 }
 
-document.getElementById("search").addEventListener("keydown", function(e){
-  if (e.key === "Enter") goSearch();
+document
+  .getElementById("search")
+  .addEventListener("keydown", function(e) {
+
+    if (e.key === "Enter") {
+      searchGoogle();
+    }
+
 });
+
 </script>
 
 </body>
